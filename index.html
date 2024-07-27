@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Habit Tracker</title>
+	<link id ="styleBright" rel="stylesheet" href="light_style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+	<link rel="icon" href="img/ico.ico" type="image/x-icon">
+</head>
+<body>
+	<div class="app">
+		<div class="panel">
+			<img id="logo" class="logo" src="img/logo.svg" alt="logo">
+			<nav class="menu">
+				<div class="menu_list"></div>
+				<button class="menu_add" onclick="togglePopup()">
+					<img src="img/add.svg" alt="add">	
+				</button>
+			</nav>
+		</div>
+		<div class="content">
+			<header>
+				<h1 class="h1">Пока нету привычек :(</h1>
+				<div class="progress">
+					<div class="progress_text">
+						<div class="progress_name">Прогресс</div>
+						<div class="progress_persent">%</div>
+					</div>
+					<div class="progress_bar">
+						<div class="progress_cover_bar"></div>
+					</div>
+				</div>
+				<button class="darkWhite" onclick="changeCss()">
+					<img src="img/darkMode.svg" alt="dark" id="theme-toggle">
+				</button>
+			</header>
+			<main>
+				<div id="days">
+					<div class="habit">	
+					</div>
+				</div>
+				<div class="habit">
+					<div class="habit_day">День 2</div>
+						<form class="habit_form" onsubmit="addDays(event)">
+							<input name="comment" class="input_icon" type="text" placeholder="Комментарий">
+							<img class="img_comment" src="img/comment.svg" alt="coment">
+							<button class="button_form">Готово</button>
+						</form>	
+				</div>
+			</main>		
+		</div>
+		<div class="cover cover_hidden" id="add_popup">
+			<div class="popup">
+				<h2>Новая привычка</h2>
+				<div class="icon_lable">Иконка</div>
+				<div class="icon_select">
+					<button class="icon icon_active" onclick="setIcon(this, 'sport')">
+						<img src="./img/sport.svg" alt="Спорт">
+					</button>
+					<button class="icon" onclick="setIcon(this, 'water')">
+						<img src="./img/water.svg" alt="Напитки">
+					</button>
+					<button class="icon" onclick="setIcon(this, 'food')">
+						<img src="./img/food.svg" alt="Еда">
+					</button>
+				</div>
+				<form class="popup_form" onsubmit="addHabit(event)">
+					<input type="text" name="name" placeholder="Название">
+					<input type="text" name="icon" hidden placeholder="Иконка" value="sport">
+					<input type="number" name="target" placeholder="Цель">
+					<button class="button_form" type="submit">Добавить</button>
+				</form>
+				<button class="popup_close" onclick="togglePopup()">
+					<img src="./img/close.svg" alt="Закрыть">
+				</button>
+			</div>
+		</div>
+	</div>
+	<script src="main.js"></script>
+</body>
+</html>
